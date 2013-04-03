@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D18ED15-68B7-443F-8676-CB0F718D9927}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PassioneBrowserKit</RootNamespace>
+    <AssemblyName>PassioneBrowserKit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebKit.Interop, Version=533.0.0.0, Culture=neutral, PublicKeyToken=b967213f6d29a3be, processorArchitecture=MSIL" />
+    <Reference Include="WebKitBrowser, Version=0.5.0.0, Culture=neutral, PublicKeyToken=b967213f6d29a3be, processorArchitecture=x86" />
+    <Reference Include="WebKitCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b967213f6d29a3be, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PWBrowserClickEventArgs.cs" />
+    <Compile Include="PWBrowserEventArgs.cs" />
+    <Compile Include="exWebkitEventFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PassioneWebBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PassioneWebBrowser.Designer.cs">
+      <DependentUpon>PassioneWebBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PWBrowserMouseDownEventArgs.cs" />
+    <Compile Include="PWBrowserMouseUpEventArgs.cs" />
+    <Compile Include="PWBrowserMouseMoveEventArgs.cs" />
+    <Compile Include="PWBrowserKeyDownEventArgs.cs" />
+    <Compile Include="PWBrowserKeyUpEventArgs.cs" />
+    <Compile Include="PWBrowserScrollEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\webkit\bin\CFLite.dll" />
+    <Content Include="DLL\webkit\bin\icudt40.dll" />
+    <Content Include="DLL\webkit\bin\icuin40.dll" />
+    <Content Include="DLL\webkit\bin\icuuc40.dll" />
+    <Content Include="DLL\webkit\bin\JavaScriptCore.dll" />
+    <Content Include="DLL\webkit\bin\JSCore.dll" />
+    <Content Include="DLL\webkit\bin\libcurl.dll" />
+    <Content Include="DLL\webkit\bin\libeay32.dll" />
+    <Content Include="DLL\webkit\bin\libexslt.dll" />
+    <Content Include="DLL\webkit\bin\libxml2.dll" />
+    <Content Include="DLL\webkit\bin\libxslt.dll" />
+    <Content Include="DLL\webkit\bin\objc.dll" />
+    <Content Include="DLL\webkit\bin\pthreadVC2.dll" />
+    <Content Include="DLL\webkit\bin\SQLite3.dll" />
+    <Content Include="DLL\webkit\bin\ssleay32.dll" />
+    <Content Include="DLL\webkit\bin\WebKit.dll" />
+    <Content Include="DLL\webkit\bin\WebKit.Interop.dll" />
+    <Content Include="DLL\webkit\bin\WebKitBrowser.dll" />
+    <Content Include="DLL\webkit\bin\WebKitBrowserTest.exe" />
+    <Content Include="DLL\webkit\bin\WebKitCore.dll" />
+    <Content Include="htdocs\js\lib\jquery-1.8.2.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htdocs\js\lib\jquery.animateUtil.js" />
+    <Content Include="htdocs\js\lib\jquery.Linq2PassioneWebBrowser.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DLL\webkit\bin\WebKitBrowser.dll.config" />
+    <None Include="DLL\webkit\bin\WebKitBrowser.dll.manifest" />
+    <None Include="DLL\webkit\bin\WebKitBrowserTest.exe.config" />
+    <None Include="DLL\webkit\bin\WebKitCore.dll.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>copy $(ProjectDir)DLL\webkit\bin\*.*  $(TargetDir)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

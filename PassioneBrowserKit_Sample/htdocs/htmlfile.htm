@@ -1,0 +1,273 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="ja" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    
+    <div id="main">
+    
+        <div class="section">
+            <h2>html ⇒ C#への通信</h2>
+            htmlのclassに"linqPBObj"を指定すると、C#との通信対象のエレメントとして認識されます。 <br />
+            <br />
+            例えばhtml上の、divHogeというidをもったエレメントのクリック時に、C#でMessageBox.Show("div1 click!!");とう処理を実行したい場合は、<br />
+            <br />
+            html<br />&#60;div id="divHoge" class="linqPBObj"&#62;div Click Test&#60;/div&#62;<br />
+            <br />
+            ソースコード<br />PassioneWebBrowser1.AddEventListener("#divHoge", "click", (sender, e) => { MessageBox.Show("div1 click!!"); }); <br />
+            <br />
+            と記述することにより、双方向通信が可能になります。<br />
+            <div id="divHoge" class="linqPBObj css_btn_class">div Click Test</div>
+            <br />
+            <br />
+            AddEventListenerの第一引数は、jQueryのセレクタになります。<br />
+            したがって、id指定、class指定、要素指定等での指定が可能です。<br />
+            <br />
+            例えば、hogeというクラス名を持つエレメントをクリック時、C#でMessageBox.Show("hoge click!!");とう処理を実行、<br />
+            fugaというクラス名を持つエレメントをクリック時、C#でMessageBox.Show("fuga click!!");とう処理を実行する場合、<br />
+            <br />
+            html<br />&#60;div class="hoge linqPBObj"&#62;hoge Click Test&#60;/div&#62;<br />
+            &#60;div class="fuga linqPBObj"&#62;fuga Click Test&#60;/div&#62;<br />
+            <br />
+            ソースコード<br />PassioneWebBrowser1.AddEventListener(".hoge", "click", (sender, e) => { MessageBox.Show("hoge click!!"); }); <br />
+            PassioneWebBrowser1.AddEventListener(".fuga", "click", (sender, e) => { MessageBox.Show("fuga click!!"); }); <br />
+            <br />
+            と記述することで実現可能です。<br />
+            <br />
+            <div class="hoge linqPBObj css_btn_class">hoge Click Test</div>
+            <div class="fuga linqPBObj css_btn_class">fuga Click Test</div>
+            <br />
+            <br />
+            下記に、htmlとC#で通信可能なイベントを列挙します。<br />
+            動作内容は、htmlのソースとC#のソースを参照して下さい。
+            <br />
+        </div>
+    
+        <div class="section">
+            <h2>Click</h2>
+            <div id="div1" class="linqPBObj css_btn_class">div Click</div>
+            <div class="info">クリックを取得<br />左/右クリック共に受付る</div>
+        </div>
+        <div class="section">
+            <h2>Click</h2>
+            <div id="div2" class="linqPBObj css_btn_class">div Click</div>
+            <div class="info">クリックを取得<br />右クリックを受け付けない</div>
+        </div>
+        <div class="section">
+            <h2>DoubleClick</h2>
+            <div id="div3" class="linqPBObj">div DoubleClick</div>
+            <div class="info">ダブルクリックを取得</div>
+        </div>
+        <div class="section">
+            <h2>Mouse Up/Down</h2>
+            <div id="div4" class="linqPBObj">div Mouse Up/Down</div>
+            <div class="info">マウスダウン/アップを取得</div>
+        </div>
+        <div class="section">
+            <h2>Mouse Move</h2>
+            <div id="div5" class="linqPBObj">div Mouse Move</div>
+            <div class="info">マウス移動を取得</div>
+        </div>
+        <div class="section">
+            <h2>Mouse Over/Out</h2>
+            <div id="div6" class="linqPBObj">div Mouse Over/Out</div>
+            <div class="info">マウスOver/Outを取得</div>
+        </div>
+        <div class="section">
+            <h2>blur</h2>
+            <input type="text" id="input1" class="linqPBObj" />
+            <input type="text" id="input2" class="linqPBObj" />
+            <div class="info">フォーカス消失を取得</div>
+        </div>
+        <div class="section">
+            <h2>focus</h2>
+            <input type="text" id="input3" class="linqPBObj" />
+            <input type="text" id="input4" class="linqPBObj" />
+            <div class="info">フォーカス取得を取得</div>
+        </div>
+        <div class="section">
+            <h2>change</h2>
+            
+            <div class="section_box">
+                <div>Value有</div>
+                <select id="select1" multiple="multiple" class="linqPBObj">
+                    <option value="1">ザ・フール</option>
+                    <option selected="selected" value="2">マジシャンズ・レッド</option>
+                    <option value="3">ハイ・プリエステス</option>
+                    <option selected="selected" value="4">シルバー・チャリオッツ</option>
+                    <option value="5">ストレングス</option>
+                    <option value="6">スター・プラチナ</option>
+                 </select>
+             </div>
+            
+             <div class="section_box">
+                <div>Value無</div>
+                 <select id="select2" multiple="multiple" class="linqPBObj">
+                    <option>エニグマ</option>
+                    <option>キラー・クイーン</option>
+                    <option>ストレイ・キャット</option>
+                    <option selected="selected" >ラブ・デラックス</option>
+                    <option>ボーイ・II・マン</option>
+                    <option>ヘブンズ・ドアー</option>
+                 </select>
+             </div>
+             
+             
+             <br class="clear" />
+            <div class="info">変更を取得</div>
+        </div>       
+        <div class="section">
+            <h2>KeyDown/Up</h2>
+            <div class="section_box">
+                <div>KeyDown</div>
+                <input type="text" id="input5" class="linqPBObj" />
+            </div>
+            <div class="section_box">
+                <div>KeyUp</div>
+                <input type="text" id="input6" class="linqPBObj" />
+            </div>
+            <br class="clear" />
+            <div class="info">
+                キーボードUp/Downを取得<br />
+                ※keypressは実装しません。イベントのキャンセル等の実装は、jQueryで実装して下さい。
+            </div>
+        </div>
+        <div class="section">
+            <h2>scroll</h2>
+            <div id="div_outer" class="linqPBObj">
+                <div id="div_inner">
+                </div>
+            </div>
+            <div class="info">スクロールを取得</div>
+        </div>
+        
+        <div class="section">
+            <h2>C# ⇒ htmlへの通信</h2>
+            C#からhtmlへの通信は、下記の機能を用意しています。
+            <br />
+            <ul id="methods">
+                <li>GetText(Textを取得する)</li>
+                <li>SetText(textを設定する)</li>
+                <li>GetVal(valを取得する)</li>
+                <li>SetVal(Valを設定する)</li>
+                <li>GetCssVal(指定CSSの値を取得する)</li>
+                <li>SetCssVal(指定CSSの値を設定する)</li>
+                <li>GetHtml(Htmlを取得する)</li>
+                <li>SetHtml(htmlを設定する)</li>
+                <li>CallFunction(指定ファンクションを実行する)</li>
+            </ul>
+            <br />
+            
+        </div>
+        
+        <div class="section">
+            <h2>GetText/SetText</h2>
+            <div id="divGetSet">このdivのidは"divGetSet"です。</div>
+            <div id="edForGetText" class="linqPBObj css_btn_class showEditfrm">編集画面表示</div>
+            <br />
+            <div class="info">
+                このサンプルでは、<br />
+                PassioneWebBrowser1.GetText("#divGetSet") <br />
+                を実行することにより、div内のテキストを取得し、<br />
+                PassioneWebBrowser1.SetText("#divGetSet", "編集画面のテキストボックスの値") <br />
+                を実行することにより、編集結果を画面に反映しています。
+            </div>
+        </div>
+        
+       
+        <div class="section">
+            <h2>GetVal/SetVal</h2>
+            <select id="selectGetSet"class="linqPBObj">
+                    <option value="1">ザ・フール</option>
+                    <option value="2">マジシャンズ・レッド</option>
+                    <option value="3">ハイ・プリエステス</option>
+                    <option selected="selected" value="4">シルバー・チャリオッツ</option>
+                    <option value="5">ストレングス</option>
+                    <option value="6">スター・プラチナ</option>
+                 </select>
+            <div id="edForGetVal" class="linqPBObj css_btn_class showEditfrm">編集画面表示</div>
+            <br />
+            <div class="info">
+                このサンプルでは、<br />
+                PassioneWebBrowser1.GetVal("#selectGetSet") <br />
+                を実行することにより、selectのvalueを取得し、<br />
+                PassioneWebBrowser1.SetVal("#selectGetSet", "編集画面のテキストボックスの値") <br />
+                を実行することにより、編集結果を画面に反映しています。
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>GetCssVal/SetCssVal</h2>
+            <div id="divGetCss">このdivのidは"divGetCss"です。</div>
+            <div id="edForGetCss" class="linqPBObj css_btn_class showEditfrm">編集画面表示</div>
+            <br />
+            <div class="info">
+                このサンプルでは、<br />
+                PassioneWebBrowser1.GetCssVal("#divGetCss", "width") <br />
+                PassioneWebBrowser1.GetCssVal("#divGetCss", "height") <br />
+                を実行することにより、width、heightを取得し、<br />
+                PassioneWebBrowser1.SetCssVal("#divGetCss", width, "編集画面の幅テキストボックスの値") <br />
+                PassioneWebBrowser1.SetCssVal("#divGetCss", height, "編集画面の高さテキストボックスの値") <br />
+                を実行することにより、編集結果を画面に反映しています。
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>GetHtml/SetHtml</h2>
+            <div id="divGetHtml">
+                <p>このdivのidは"divGetHtml"です。</p>
+                <div class="hoge linqPBObj css_btn_class">hoge Click Test</div>
+            </div>
+            <div id="edForGetHtml" class="linqPBObj css_btn_class showEditfrm">編集画面表示</div>
+            <br />
+            <div class="info">
+                このサンプルでは、<br />
+                PassioneWebBrowser1.GetHtml("#divGetHtml") <br />
+                を実行することにより、対象のhtmlを取得し、<br />
+                PassioneWebBrowser1.SetHtml("#divGetHtml", "編集画面のテキストボックスの値") <br />
+                を実行することにより、編集結果を画面に反映しています。
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>CSS3対応</h2>
+            <div id="divThreeCnt" class="">
+                <p>webkitベースのブラウザなので、CSS3が使用できます。(3D機能は現在未対応のようです)</p>
+                <p>例えば、このセクションは一つのdivに、column-countを指定して</p>
+                <p>3列で表示しています。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Css3:animation</h2>
+            <div id="divAnm" class="">               
+            </div>
+            <div class="info">アニメーションも使用可能</div>
+        </div>
+        
+        <div class="section">
+            <h2>Css3:transition</h2>
+            <div id="divTrn1" class="">               
+            </div>
+            <div id="divTrn2" class="">               
+            </div>
+            <div id="divTrn3" class="">               
+            </div>
+            <div class="info">
+                transitionも使用可能。<br />
+                ワンライナーには現在未対応のようです。
+            </div>
+        </div>
+        
+    </div>
+    
+    <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.Linq2PassioneWebBrowser.js"></script>
+    <script type="text/javascript" src="jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

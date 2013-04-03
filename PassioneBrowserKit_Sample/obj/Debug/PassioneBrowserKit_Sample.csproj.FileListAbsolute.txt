@@ -1,0 +1,10 @@
+C:\DevTest\PassioneBrowserKit_Sample\bin\Debug\htdocs\js\lib\jquery.Linq2PassioneWebBrowser.js
+C:\DevTest\PassioneBrowserKit_Sample\bin\Debug\htdocs\js\lib\jquery-1.8.2.min.js
+C:\DevTest\PassioneBrowserKit_Sample\bin\Debug\PassioneBrowserKit_Sample.exe
+C:\DevTest\PassioneBrowserKit_Sample\bin\Debug\PassioneBrowserKit_Sample.pdb
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\ResolveAssemblyReference.cache
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\PassioneBrowserKit_Sample.Properties.Resources.resources
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\PassioneBrowserKit_Sample.csproj.GenerateResource.Cache
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\PassioneBrowserKit_Sample.exe
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\PassioneBrowserKit_Sample.pdb
+C:\DevTest\PassioneBrowserKit_Sample\PassioneBrowserKit_Sample\obj\Debug\PassioneBrowserKit_Sample.Form1.resources
