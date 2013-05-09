@@ -250,6 +250,24 @@ namespace PassioneBrowserKit
             return this.StringByEvaluatingJavaScriptFromString(string.Format(SET_CSS_VAL_FORMAT, selector, cssKey, val));
         }
 
+        private const string GET_ATTR_VAL_FORMAT = @"GetAttr('{0}', '{1}');";
+        /// <summary>
+        /// 指定要素の指定Attrの値を取得
+        /// </summary>
+        public string GetAttr(string selector, string attrKey)
+        {
+            return this.StringByEvaluatingJavaScriptFromString(string.Format(GET_ATTR_VAL_FORMAT, selector, attrKey));
+        }
+
+        private const string SET_ATTR_VAL_FORMAT = @"SetAttr('{0}', '{1}', '{2}');";
+        /// <summary>
+        /// 指定要素の指定Attrの値を設定
+        /// </summary>
+        public string SetAttr(string selector, string attrKey, string val)
+        {
+            return this.StringByEvaluatingJavaScriptFromString(string.Format(SET_ATTR_VAL_FORMAT, selector, attrKey, val));
+        }
+
         /// <summary>
         /// 指定ファンクションを実行
         /// </summary>
